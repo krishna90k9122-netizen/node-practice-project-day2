@@ -10,8 +10,9 @@ app.get("/",(req,resp)=>{
 });
 
 app.post("/submit",(req,resp)=>{
-    console.log(req.body);
+    console.log(req.body.email);
+    console.log(req.body.password);
     resp.send("form is submitted");
 });
 
-app.listen(5900);
+app.listen(4900);
