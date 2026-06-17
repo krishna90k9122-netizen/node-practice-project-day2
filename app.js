@@ -10,10 +10,41 @@ app.use(express.urlencoded({extended:true}));
 app.set("view engine" ,"ejs");
 
 app.get("/ejs",(req,resp)=>{
+    const users = [
+    "Krishna",
+    "Rahul",
+    "Aman",
+    "Priya",
+    "Sneha",
+    "Rohit",
+    "Ankit",
+    "Neha",
+    "Pooja",
+    "Vikas",
+    "Riya",
+    "Arjun",
+    "Karan",
+    "Simran",
+    "Nisha",
+    "Aditya",
+    "Sakshi",
+    "Deepak",
+    "Shivam",
+    "Aditi"
+];
     resp.render("ejs-demo",{
-    name:"Krishna"
+    users
     });
 });
+
+
+app.get("/profile",(req,resp)=>{
+    const isloggedin=false;
+
+    resp.render("profile",{
+        isloggedin
+    });
+})
 
 app.get("/",(req,resp)=>{
     resp.sendFile(path.join(__dirname,"views","login.html"));
