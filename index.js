@@ -72,7 +72,7 @@ client.connect().then((connection) => {
         console.log(req.params.id);
         const collection = db.collection("college")
         const result = await collection.deleteOne({ _id: new ObjectId(req.params.id) })
-        if(result)
+        if (result)
 
             if (result) {
                 resp.send({
@@ -110,6 +110,22 @@ client.connect().then((connection) => {
 
         resp.render('update-sd', { result })
     })
+
+
+ app.get("/students/:id", async (req, resp) => {
+        const id = req.params.id;
+        console.log(id);
+        const collection = db.collection("college")
+        const result = await collection.findOne({ _id: new ObjectId(req.params.id) })
+
+        resp.send({
+            messages:'data fetched',
+            success:true,
+            result:result
+        })
+    })
+
+
 
 });
 
